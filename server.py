@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 @app.route("/emotionDetector", methods=['GET', 'POST'])
 def emotion_detector_route():
+    """Handle emotion detection requests."""
     if request.method == 'GET':
         text_to_analyze = request.args.get('textToAnalyze', '')
     else:
@@ -43,6 +44,7 @@ def emotion_detector_route():
 
 @app.route("/")
 def render_index_page():
+    """Render the index page."""
     return render_template('index.html')
 
 
