@@ -6,7 +6,10 @@ def emotion_detector(text_to_analyze):
     if not text_to_analyze or text_to_analyze.strip() == "":
         return None
 
-    url = 'https://sn-watson-emotion-point.labs.skills.network/v1/watson-runtime/nlq?version=2023-07-01'
+    url = (
+        'https://sn-watson-emotion-point.labs.skills.network'
+        '/v1/watson-runtime/nlq?version=2023-07-01'
+    )
 
     headers = {
         'Content-Type': 'application/json',
@@ -23,7 +26,8 @@ def emotion_detector(text_to_analyze):
         if response.status_code == 200:
             response_json = response.json()
 
-            if 'emotion' in response_json and 'document' in response_json['emotion']:
+            if ('emotion' in response_json
+                    and 'document' in response_json['emotion']):
                 emotions = response_json['emotion']['document']['emotion']
 
                 anger_score = emotions.get('anger', 0)
