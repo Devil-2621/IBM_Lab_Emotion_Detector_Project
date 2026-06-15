@@ -6,18 +6,20 @@ def emotion_detector(text_to_analyze):
     if not text_to_analyze or text_to_analyze.strip() == "":
         return None
 
-    url = (
-        'https://sn-watson-emotion-point.labs.skills.network'
-        '/v1/watson-runtime/nlq?version=2023-07-01'
-    )
+    url = 'https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict'
 
     headers = {
+        'grpc-timeout': '30',
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Authorization': 'apikey'
     }
 
     body = {
-        'text': text_to_analyze
+        'raw_document': {
+            'content': text_to_analyze,
+            'content_type': 'text/plain'
+        }
     }
 
     try:
@@ -26,9 +28,8 @@ def emotion_detector(text_to_analyze):
         if response.status_code == 200:
             response_json = response.json()
 
-            if ('emotion' in response_json
-                    and 'document' in response_json['emotion']):
-                emotions = response_json['emotion']['document']['emotion']
+            if 'emotionPredictions' in response_json:
+                emotions = response_json['emotionPredictions'][0]['emotion']
 
                 anger_score = emotions.get('anger', 0)
                 disgust_score = emotions.get('disgust', 0)

@@ -10,17 +10,15 @@ class TestEmotionDetector(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.json.return_value = {
-            'emotion': {
-                'document': {
-                    'emotion': {
-                        'anger': 0.003,
-                        'disgust': 0.002,
-                        'fear': 0.001,
-                        'joy': 0.987,
-                        'sadness': 0.001
-                    }
+            'emotionPredictions': [{
+                'emotion': {
+                    'anger': 0.003,
+                    'disgust': 0.002,
+                    'fear': 0.001,
+                    'joy': 0.987,
+                    'sadness': 0.001
                 }
-            }
+            }]
         }
         mock_post.return_value = mock_response
 
@@ -38,17 +36,15 @@ class TestEmotionDetector(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.json.return_value = {
-            'emotion': {
-                'document': {
-                    'emotion': {
-                        'anger': 0.876,
-                        'disgust': 0.045,
-                        'fear': 0.032,
-                        'joy': 0.001,
-                        'sadness': 0.012
-                    }
+            'emotionPredictions': [{
+                'emotion': {
+                    'anger': 0.876,
+                    'disgust': 0.045,
+                    'fear': 0.032,
+                    'joy': 0.001,
+                    'sadness': 0.012
                 }
-            }
+            }]
         }
         mock_post.return_value = mock_response
 
@@ -61,17 +57,15 @@ class TestEmotionDetector(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.json.return_value = {
-            'emotion': {
-                'document': {
-                    'emotion': {
-                        'anger': 0.012,
-                        'disgust': 0.912,
-                        'fear': 0.023,
-                        'joy': 0.001,
-                        'sadness': 0.034
-                    }
+            'emotionPredictions': [{
+                'emotion': {
+                    'anger': 0.012,
+                    'disgust': 0.912,
+                    'fear': 0.023,
+                    'joy': 0.001,
+                    'sadness': 0.034
                 }
-            }
+            }]
         }
         mock_post.return_value = mock_response
 
@@ -84,17 +78,15 @@ class TestEmotionDetector(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.json.return_value = {
-            'emotion': {
-                'document': {
-                    'emotion': {
-                        'anger': 0.012,
-                        'disgust': 0.002,
-                        'fear': 0.045,
-                        'joy': 0.001,
-                        'sadness': 0.923
-                    }
+            'emotionPredictions': [{
+                'emotion': {
+                    'anger': 0.012,
+                    'disgust': 0.002,
+                    'fear': 0.045,
+                    'joy': 0.001,
+                    'sadness': 0.923
                 }
-            }
+            }]
         }
         mock_post.return_value = mock_response
 
@@ -107,17 +99,15 @@ class TestEmotionDetector(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 200
         mock_response.json.return_value = {
-            'emotion': {
-                'document': {
-                    'emotion': {
-                        'anger': 0.012,
-                        'disgust': 0.002,
-                        'fear': 0.945,
-                        'joy': 0.001,
-                        'sadness': 0.034
-                    }
+            'emotionPredictions': [{
+                'emotion': {
+                    'anger': 0.012,
+                    'disgust': 0.002,
+                    'fear': 0.945,
+                    'joy': 0.001,
+                    'sadness': 0.034
                 }
-            }
+            }]
         }
         mock_post.return_value = mock_response
 
